@@ -1,0 +1,10 @@
+<%= form_tag search2_path, method: :get do %>
+	<div class="search_field" align="center">
+    <%= label :location, "Search for places near : " %><br />
+    <%= text_field_tag :location, params[:location] %>
+  	</div>
+
+  	<div class="search_actions" align="center">
+    <%= submit_tag "Search" %>
+  	</div>
+<% end %>

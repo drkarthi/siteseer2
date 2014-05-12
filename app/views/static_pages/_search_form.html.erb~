@@ -1,0 +1,6 @@
+<%= form_tag classifieds_path, method: :get do %>
+  <%= label :location, "Search classifieds near : " %>
+  <%= text_field_tag :location, params[:location] %>
+
+  <%= submit_tag "Search" %>
+<% end %>
