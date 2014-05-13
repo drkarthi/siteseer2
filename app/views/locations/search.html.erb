@@ -1,6 +1,12 @@
+<% if @locations.empty? %>
+<p> Thank you for introducing us to a new place. Please add the location 
+	<%= link_to 'here', add_path %>. 
+</p> 
+<% else %>
 <h3>Nearby locations</h3>
 <ul>
   <% for loc in @locations %>
     <li><%= loc.address %> (<%= loc.distance.round(2) %> miles)</li>
-  <% end %>
+    <% end %>
 </ul>
+<% end %>

@@ -53,6 +53,13 @@ p {
   line-height: 1.7em;
 }
 
+.btn-primary {
+  color: #fff;
+  background-color: #000; 
+  border-color: #000;
+  font-color: #fff;
+}
+
 /* header */
 
 #logo {
@@ -87,6 +94,11 @@ display: inline;
 padding: 10px 15px;
 color: #fff;
 }
+
+.horizontal_link {
+  color: #fff
+}
+
 /* footer */
 
 footer {

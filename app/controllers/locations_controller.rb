@@ -1,4 +1,5 @@
 class LocationsController < ApplicationController
+  before_filter :authenticate_user!, :except => [:search]
   # GET /locations
   # GET /locations.json
   def index
@@ -35,12 +36,19 @@ class LocationsController < ApplicationController
   # GET /locations/1/edit
   def edit
     @location = Location.find(params[:id])
+  
+    if @location.user != current_user
+       respond_to do |format|
+       format.html {redirect_to locations_url, notice: 'You can only edit places created by you' }   
+    end
   end
+  end 
 
   # POST /locations
   # POST /locations.json
   def create
     @location = Location.new(params[:location])
+    @location.user = current_user
 
     respond_to do |format|
       if @location.save
@@ -52,8 +60,6 @@ class LocationsController < ApplicationController
       end
     end
   end
-
-############################################
 
   def search
     if params[:location].present?
@@ -67,8 +73,6 @@ class LocationsController < ApplicationController
     format.html # search.html.erb
     end     
   end
-
-############################################  
 
   # PUT /locations/1
   # PUT /locations/1.json
@@ -86,19 +90,19 @@ class LocationsController < ApplicationController
     end
   end
 
-  # def search
-
-  # end
-
   # DELETE /locations/1
   # DELETE /locations/1.json
   def destroy
     @location = Location.find(params[:id])
-    @location.destroy
+
+    if @location.user == current_user
+    @location.destroy 
 
     respond_to do |format|
       format.html { redirect_to locations_url }
       format.json { head :no_content }
-    end
+      end
+    end 
   end
+
 end

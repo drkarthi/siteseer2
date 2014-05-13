@@ -9,13 +9,15 @@ Siteseer::Application.routes.draw do
   match '/contact', to: 'static_pages#contact', via: 'get'                  # contact page yet to be made
   match '/signin', to: 'users#sign_in', via: 'get'
   match '/search', to: 'static_pages#search_static', via:'get'
-  match '/search2', to: 'locations#search', via:'get'
+  match '/search_location', to: 'locations#search', via:'get'
+  match '/add', to: 'locations#new', via: 'get'
+  match '/contact', to: 'static_pages#contact', via:'get'
 
-#resources :locations do
+resources :locations do
 #  collection do
 #    get :search
 #  end
-#end
+end
 
   #root :to => "locations#index"
 

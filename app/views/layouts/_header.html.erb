@@ -13,10 +13,15 @@
 
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to "Home",    home_path %></li>
-          <li><%= link_to "Help",    help_path %></li>
-          <li><%= link_to "Sign in", new_user_session_path %></li>
-          <li><%= link_to "Search", search_path %></li>
+          <li class ="horizontal"><%= link_to "Home",    home_path %></li>
+          <li class ="horizontal"><%= link_to "Help",    help_path %></li>
+          <% if !user_signed_in? %>
+          <li class ="horizontal_link"><%= link_to "Sign in", new_user_session_path %></li>
+          <% end %>
+          <li class ="horizontal"><%= link_to "Search", search_path %></li>
+          <% if user_signed_in? %>
+          <li class ="horizontal"><%= link_to "Add location", add_path %></li>
+          <% end %>          
         </ul>
       </nav>
     </div>

@@ -12,16 +12,17 @@
 
 <% @locations.each do |location| %>
   <tr>
-    <td><%= location.address %></td>
+    <td><%= link_to location.address, location %></td>
     <td><%= location.latitude %></td>
     <td><%= location.longitude %></td>
-    <td><%= link_to 'Show', location %></td>
-    <td><%= link_to 'Edit', edit_location_path(location) %></td>
+    <% if location.user == current_user %>
+    <td><%= link_to 'Edit', edit_location_path(location) %></td> 
     <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Location', new_location_path %>
+<%= link_to 'New Location', new_location_path, class: "btn btn-large btn-primary" %>
