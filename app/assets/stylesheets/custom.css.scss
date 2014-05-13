@@ -55,7 +55,7 @@ p {
 
 .btn-primary {
   color: #fff;
-  background-color: #000; 
+  background-color: #555; 
   border-color: #000;
   font-color: #fff;
 }
@@ -85,6 +85,7 @@ p {
 
 ul.nav pull-right {
   color:#fff;
+  padding-top: 20px
 }
 
 .nav > li > a {
@@ -95,9 +96,23 @@ padding: 10px 15px;
 color: #fff;
 }
 
-.horizontal_link {
-  color: #fff
+.nav > li > a:hover, .nav > li > a:focus {
+  text-decoration: none;
+   background-color: transparent; 
 }
+
+.horizontal_link {
+  color: #fff;
+  display: inline;
+}
+
+.nav > li {
+  position: relative;
+  display: inline;
+  padding-top: 20px;
+}
+
+
 
 /* footer */
 
