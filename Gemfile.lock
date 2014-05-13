@@ -135,9 +135,9 @@ DEPENDENCIES
   geocoder
   jquery-rails
   nifty-generators
-  pg (= 0.15.1)
+  pg
   rails (= 3.2.11)
-  rails_12factor (= 0.0.2)
+  rails_12factor
   sass-rails (~> 3.2.3)
   sprockets
   sqlite3
